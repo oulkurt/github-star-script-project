@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         GitHub Star Button (header)
-// @namespace    https://github.com/you
-// @version      1.0.0
+// @namespace    https://github.com/oulkurt
+// @version      1.0.1
 // @description  在 GitHub 头部头像左侧添加一个空心星形按钮，直达 /stars
 // @author       You
 // @match        https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
 // @grant        none
 // @run-at       document-end
+// @license      MIT
 // ==/UserScript==
 console.log('[Star Button] script loaded');
 

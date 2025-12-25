@@ -9,8 +9,14 @@
 - 失败重试：若初始插入失败，会监听 DOM 变化并在 5 秒内重试
 
 ## 安装与使用
+### 一键安装（推荐）
+[![一键安装到脚本管理器](https://img.shields.io/badge/Userscript-Install-brightgreen?logo=github)](https://github.com/oulkurt/github-star-script-project/raw/main/GitHub_Star.js)
+
+点击上方按钮后，Tampermonkey / Violentmonkey / 其他兼容管理器会自动弹出安装确认。
+
+### 手动安装
 1. 安装浏览器扩展：推荐 [Tampermonkey](https://www.tampermonkey.net/) 或兼容的 Userscript 管理器。
-2. 新建脚本，将本仓库的 `GitHub_Star.js` 全部内容复制粘贴进去保存。
+2. 新建脚本，将本仓库的 `GitHub_Star.js` 全部内容复制粘贴进去保存。  
    - 或者直接在扩展中选择“从文件导入”，指向本仓库的 `GitHub_Star.js`。
 3. 打开任意 GitHub 页面，确认头像左侧出现星形按钮，点击即跳转到 `/stars`。
 
@@ -29,4 +35,40 @@
 - **样式与主题不一致？** 调整脚本中按钮的 class 或 SVG 颜色以适配浅色/深色主题。
 
 ## 版本
+- 1.0.1：更新元数据（namespace、license），便于发布与安装。
 - 1.0.0：初始版本，提供头部星标按钮跳转 `/stars`。
+
+---
+
+# GitHub Star Button Userscript (English)
+
+## Features
+- Adds a hollow star button to GitHub header, next to the avatar, linking to `/stars`.
+- Works site-wide on GitHub.
+- Compatible with Turbo navigation (`turbo:load` / `turbo:render`).
+- Retry for 5 seconds via `MutationObserver` if initial insertion fails.
+
+## Install
+### One-click (recommended)
+[![Install to userscript manager](https://img.shields.io/badge/Userscript-Install-brightgreen?logo=github)](https://github.com/oulkurt/github-star-script-project/raw/main/GitHub_Star.js)
+
+Click the badge above; Tampermonkey / Violentmonkey / other managers will prompt to install.
+
+### Manual
+1. Install a userscript manager (Tampermonkey recommended).
+2. Create a new script and paste the entire `GitHub_Star.js`.  
+   - Or import the file directly from this repo.
+3. Open any GitHub page; the star button should appear next to your avatar and link to `/stars`.
+
+## Development
+- Main file: `GitHub_Star.js` (creates button, watches DOM, inserts node).
+- Runtime: runs after page load; listens to `turbo:load` / `turbo:render`.
+- Styling: edit button class or SVG to match your theme.
+
+## Troubleshooting
+- Button not visible? Refresh, ensure you’re logged in, and that the manager is enabled.
+- Theme mismatch? Adjust button class or SVG color for light/dark modes.
+
+## Changelog
+- 1.0.1: Update metadata (namespace, license) for publishing/install convenience.
+- 1.0.0: Initial release, header star button to `/stars`.
