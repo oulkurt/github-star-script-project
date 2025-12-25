@@ -12,13 +12,14 @@
 ### 一键安装（推荐）
 [![一键安装到脚本管理器](https://img.shields.io/badge/Userscript-Install-brightgreen?logo=github)](https://github.com/oulkurt/github-star-script-project/raw/main/GitHub_Star.user.js)
 
-点击上方按钮后，Tampermonkey / Violentmonkey / 其他兼容管理器会自动弹出安装确认。
+点击上方按钮后，Tampermonkey / Violentmonkey / 其他兼容管理器会自动弹出安装确认。  
+已登录时会跳转到 `/<用户名>?tab=stars`，未登录则回退到 `/stars`。
 
 ### 手动安装
 1. 安装浏览器扩展：推荐 [Tampermonkey](https://www.tampermonkey.net/) 或兼容的 Userscript 管理器。
 2. 新建脚本，将本仓库的 `GitHub_Star.user.js` 全部内容复制粘贴进去保存。  
    - 或者直接在扩展中选择“从文件导入”，指向本仓库的 `GitHub_Star.user.js`。
-3. 打开任意 GitHub 页面，确认头像左侧出现星形按钮，点击即跳转到 `/stars`。
+3. 打开任意 GitHub 页面，确认头像左侧出现星形按钮，点击跳转到你的 stars 页面（已登录时为 `/<用户名>?tab=stars`，未登录回退 `/stars`）。
 
 ## 开发说明
 - 主要文件：`GitHub_Star.user.js`（核心脚本，含按钮创建、DOM 监听与插入逻辑）
@@ -35,6 +36,7 @@
 - **样式与主题不一致？** 调整脚本中按钮的 class 或 SVG 颜色以适配浅色/深色主题。
 
 ## 版本
+- 1.0.2：按钮跳转到 `/<用户名>?tab=stars`（未登录回退 `/stars`）。
 - 1.0.1：更新元数据（namespace、license），并改名为 `.user.js` 支持一键安装。
 - 1.0.0：初始版本，提供头部星标按钮跳转 `/stars`。
 
@@ -52,13 +54,14 @@
 ### One-click (recommended)
 [![Install to userscript manager](https://img.shields.io/badge/Userscript-Install-brightgreen?logo=github)](https://github.com/oulkurt/github-star-script-project/raw/main/GitHub_Star.user.js)
 
-Click the badge above; Tampermonkey / Violentmonkey / other managers will prompt to install.
+Click the badge above; Tampermonkey / Violentmonkey / other managers will prompt to install.  
+If logged in, the button links to `/<username>?tab=stars`; if not logged in, it falls back to `/stars`.
 
 ### Manual
 1. Install a userscript manager (Tampermonkey recommended).
 2. Create a new script and paste the entire `GitHub_Star.user.js`.  
    - Or import the file directly from this repo.
-3. Open any GitHub page; the star button should appear next to your avatar and link to `/stars`.
+3. Open any GitHub page; the star button should appear next to your avatar and link to your stars page (`/<username>?tab=stars` when logged in, else `/stars`).
 
 ## Development
 - Main file: `GitHub_Star.user.js` (creates button, watches DOM, inserts node).
@@ -70,5 +73,6 @@ Click the badge above; Tampermonkey / Violentmonkey / other managers will prompt
 - Theme mismatch? Adjust button class or SVG color for light/dark modes.
 
 ## Changelog
+- 1.0.2: Link now points to `/<username>?tab=stars` (fallback `/stars` when not logged in).
 - 1.0.1: Update metadata (namespace, license); rename to `.user.js` for one-click install.
 - 1.0.0: Initial release, header star button to `/stars`.

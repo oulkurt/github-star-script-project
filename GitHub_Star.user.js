@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         GitHub Star Button (header)
 // @namespace    https://github.com/oulkurt
-// @version      1.0.1
-// @description  在 GitHub 头部头像左侧添加一个空心星形按钮，直达 /stars
+// @version      1.0.2
+// @description  在 GitHub 头部头像左侧添加一个空心星形按钮，直达个人 stars 页
 // @author       You
 // @match        https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
@@ -28,6 +28,16 @@ console.log('[Star Button] script loaded');
     `;
   }
 
+  function getUserLogin() {
+    const meta = document.querySelector('meta[name="user-login"]');
+    return meta ? meta.getAttribute('content') || '' : '';
+  }
+
+  function getStarsHref() {
+    const login = getUserLogin();
+    return login ? `/${login}?tab=stars` : '/stars';
+  }
+
   function getActionsContainer() {
     return (
       document.querySelector('.AppHeader-actions') ||
@@ -46,7 +56,7 @@ console.log('[Star Button] script loaded');
 
     const starButton = document.createElement('a');
     starButton.id = BUTTON_ID;
-    starButton.href = '/stars';
+    starButton.href = getStarsHref();
     starButton.className = 'Button Button--iconOnly Button--secondary Button--medium AppHeader-button color-fg-muted';
     starButton.setAttribute('aria-label', 'Your stars');
     starButton.innerHTML = createIcon();
